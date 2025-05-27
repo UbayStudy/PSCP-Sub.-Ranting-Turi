@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perguruan Pencak Silat Cempaka Putih</title>
+    <style>
+        /* CSS Styling */
+        :root {
+            --primary-color: #526db3;
+            --secondary-color: #e5ff00;
+            --light-color: #bdb0b0;
+            --dark-color: #1b1d24;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light-color);
+            color: var(--dark-color);
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('silat-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .logo img{
+            width: 200px;
+            height: 200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        nav {
+            background-color: var(--primary-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+        
+        nav ul li {
+            padding: 1rem;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        section {
+            padding: 3rem 0;
+        }
+        
+        h1, h2, h3 {
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+        
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+        
+        h2::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 4px;
+            background-color: var(--secondary-color);
+            margin: 0.5rem auto;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            padding: 0.7rem 1.5rem;
+            margin-top: 1rem;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: var(--primary-color);
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .about-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .jurusan {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .jurusan-item {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .jurusan-item:hover {
+            transform: translateY(-10px);
+        }
+        
+        .jurusan-item h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .gallery-item {
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            height: 250px;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+        
+        input, textarea, select {
+            width: 100%;
+            padding: 0.7rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 2rem;
+        }
+        
+        .social-links {
+            margin: 1rem 0;
+        }
+        
+        .social-links a {
+            color: white;
+            margin: 0 0.5rem;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: var(--secondary-color);
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header id="home">
+        <div class="logo"><img src="images/quality_restoration_20250527173030826.png" alt=""></div>
+        <h1>Perguruan Pencak Silat Cempaka Putih</h1>
+        <p>PSCP SUB.RANTING TURI</p>
+        <a href="#daftar" class="btn">Daftar Sekarang</a>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="#home">Beranda</a></li>
+            <li><a href="#tentang">Tentang Kami</a></li>
+            <li><a href="#jurusan">Pelatihan</a></li>
+            <li><a href="#galeri">Galeri</a></li>
+            <li><a href="#kontak">Kontak</a></li>
+        </ul>
+    </nav>
+    
+    <main class="container">
+        <section id="tentang">
+            <h2>Tentang Perguruan Kami</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Perguruan Pencak Silat Cempaka Putih didirikan pada tahun 1974 oleh Eyang Wagiman dengan tujuan melestarikan dan mengembangkan seni bela diri tradisional Indonesia. Kami telah melatih siswa dari berbagai kalangan dan usia.</p>
+                    <p>Kami tidak hanya mengajarkan teknik bela diri, tetapi juga nilai-nilai luhur seperti disiplin, hormat, dan tanggung jawab. Silat adalah warisan budaya yang harus kita jaga bersama.</p>
+                    <p>Perguruan kami telah menghasilkan banyak atlet yang berprestasi di tingkat nasional. Kami juga aktif dalam berbagai kegiatan budaya untuk mempromosikan silat sebagai warisan dunia.</p>
+                </div>
+                <div class="about-image">
+                    <img src="images/IMG20250119092416.jpg" alt="Demonstrasi Silat">
+                </div>
+            </div>
+        </section>
+        
+        <section id="jurusan">
+            <h2>Pelatihan</h2>
+            <div class="jurusan">
+                <div class="jurusan-item">
+                    <h3>Kedisiplinan</h3>
+                    <p>Dalam pencak silat, pelatihan kedisiplinan merupakan bagian penting dari proses pembinaan mental dan karakter seorang pesilat. Kedisiplinan tidak hanya diajarkan secara teori, tetapi dibentuk melalui kebiasaan dan latihan yang konsisten. Berikut ini adalah beberapa metode pelatihan kedisiplinan yang diterapkan:
+
+                        <p>1. Tata tertib latihan
+                            <p>2. Penghormatan etika
+                                <p>3. Latihan rutin dan terstruktur 
+                                    <p>4. Latihan konsentrasi dan kendali diri</p>
+                </div>
+                <div class="jurusan-item">
+                    <h3>Tanggung Jawab</h3>
+                    <p>Tanggung jawab adalah nilai penting yang ditanamkan dalam pencak silat, karena seorang pesilat tidak hanya dilatih untuk menjadi kuat secara fisik, tetapi juga bijaksana dalam bertindak. Pelatihan tanggung jawab bertujuan membentuk pribadi yang dapat dipercaya, disiplin, dan mampu menjaga perilaku baik di dalam maupun di luar.</p>
+                </div>
+                <div class="jurusan-item">
+                    <h3>Bela Diri</h3>
+                    <p>Pesilat juga diajarkan bagaimana menghadapi situasi nyata seperti serangan mendadak atau ancaman di jalan. Latihan ini fokus pada teknik self-defense, bukan untuk menyerang, melainkan melindungi diri dengan efektif dan cepat.
+
+Pelatihan bela diri dalam pencak silat tidak hanya meningkatkan kemampuan fisik, tetapi juga membentuk jiwa yang tenang, bertanggung jawab, dan tidak sombong. Seorang pesilat sejati diajarkan untuk hanya menggunakan kemampuan bela dirinya ketika benar-benar diperlukan.</p>
+                </div>
+                <div class="jurusan-item">
+                    <h3>Kerohanian</h3>
+                    <p>Pencak silat tidak hanya melatih fisik dan teknik bela diri, tetapi juga memperkuat kerohanian atau sisi spiritual pesilat. Tujuan dari pelatihan kerohanian ini adalah membentuk pribadi yang berakhlak mulia, rendah hati, dan menjadikan pencak silat sebagai jalan untuk mendekatkan diri kepada Tuhan. Pelatihan kerohanian dalam pencak silat membentuk pesilat yang tidak hanya tangguh secara fisik, tetapi juga kuat secara mental dan spiritual. Seorang pesilat sejati bukan hanya jago bertarung, tapi juga memiliki hati yang tenang, bijak, dan beriman.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="galeri">
+            <h2>Galeri Kegiatan</h2>
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img src="images/foto pendopo rame rame.jpg" alt="Latihan Silat">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/foto warga.jpg" alt="Latihan Jurus">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/kuning.jpg" alt="Turnamen Silat">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/latihan bersama pendopo.jpg" alt="Upacara Adat">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/IMG-20231105-WA0019.jpg" alt="Penghargaan">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/IMG_ 001 E.jpg" alt="Komunitas">
+                </div>
+            </div>
+        </section>
+        
+        <section id="kontak">
+            <h2>Hubungi Kami</h2>
+            <form id="daftar">
+                <div class="form-group">
+                    <label for="nama">Nama Lengkap</label>
+                    <input type="text" id="nama" name="nama" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="telepon">Nomor Telepon</label>
+                    <input type="tel" id="telepon" name="telepon">
+                </div>
+                <div class="form-group">
+                    <label for="pesan">Pesan</label>
+                    <textarea id="pesan" name="pesan" rows="5"></textarea>
+                </div>
+                <button type="submit" class="btn">Kirim Pendaftaran</button>
+            </form>
+        </section>
+    </main>
+    
+    <footer>
+        <p>Perguruan Pencak Silat Cempaka Putih &copy; 2025 SUB.RANTING TURI</p>
+        <div class="social-links">
+            <a href="#"><i class="fab fa-instagram">>instagram kami<</i></a>
+        </div>
+        <p>Dsn.Kwangsan/Rt03/Rw04/Ds.Turi/Kec.panekan</p>
+        <p>| Telp: 085648717184</p>
+    </footer>
+
+    <script>
+        // JavaScript untuk interaktivitas
+        document.addEventListener('DOMContentLoaded', function() {
+            // Smooth scrolling untuk navigasi
+            document.querySelectorAll('nav a').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 60,
+                        behavior: 'smooth'
+                    });
+                });
+            });
+            
+            // Form submission
+            const form = document.querySelector('form');
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Validasi form
+                const nama = document.getElementById('nama').value;
+                const email = document.getElementById('email').value;
+                
+                if(nama === '' || email === '') {
+                    alert('Nama dan email harus diisi');
+                    return;
+                }
+                
+                // Simulasi pengiriman form
+                alert('Terima kasih!.');
+                form.reset();
+                
+                // Scroll ke atas setelah submit
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+            
+            // Efek scroll untuk header
+            window.addEventListener('scroll', function() {
+                const header = document.querySelector('header');
+                const scrollPosition = window.scrollY;
+                
+                if(scrollPosition > 100) {
+                    header.style.opacity = '0.8';
+                } else {
+                    header.style.opacity = '1';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
